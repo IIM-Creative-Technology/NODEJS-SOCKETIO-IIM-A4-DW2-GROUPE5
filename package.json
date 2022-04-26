@@ -7,11 +7,6 @@
     "test": "jest",
     "start": "node app.js"
   },
-  "jest": {
-    "collectCoverage": true,
-    "coverageReporters": ["lcov"],
-    "coverageDirectory": "./output/code-coverage/"
-  },
   "author": "",
   "license": "ISC",
   "dependencies": {
