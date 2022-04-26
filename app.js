@@ -6,6 +6,7 @@ const {createServer} = require("http");
 const {Server} = require('socket.io')
 const httpServer = createServer(app);
 const io = new Server(httpServer)
+const port = process.env.PORT || 3000
 
 io.on('connection', (socket) => {
     console.log(`Connecté au client ${socket.id}`)
@@ -15,5 +16,5 @@ app.use('/api', Api.router
     // Insert here the sub route (.use like above)
 ).use('/socket', Socket.socket)
 
-httpServer.listen(3000)
+httpServer.listen(port)
 
