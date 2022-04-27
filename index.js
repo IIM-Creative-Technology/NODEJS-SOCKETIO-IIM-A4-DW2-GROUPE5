@@ -1,14 +1,13 @@
 const express = require('express')
-const app = express()
-const port = process.env.PORT || 3000
 const index = require('./routes/routes')
 // const Socket = require('./socket/index')
 // const {createServer} = require("http")
 // const {Server} = require('socket.io')
+
+const app = express()
+const port = process.env.PORT || 3000
 // const httpServer = createServer(index);
 // const io = new Server(httpServer)
-
-app.use('/', index)
 
 // io.on('connection', (socket) => {
 //     console.log(`Connecté au client ${socket.id}`)
@@ -22,7 +21,9 @@ app.use('/', index)
 //     res.send('U just posted')
 // })
 
+app.use('/', index)
+
 app.listen(port, () => {
-    console.log('Oui, j\'écoute...')
+    console.log(`Server started on http://localhost:${port}`)
 })
 
