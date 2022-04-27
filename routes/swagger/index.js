@@ -13,7 +13,7 @@ const options = {
             {url:'https://iim-groupe-5.vercel.app/', description: 'Production'}
         ]
     },
-    apis: ['./routes/*.js'], // files containing annotations as above
+    apis: ['../**/*.handler.js'], // files containing annotations as above
 };
 
 const openapiSpecification = swaggerJsdoc(options);

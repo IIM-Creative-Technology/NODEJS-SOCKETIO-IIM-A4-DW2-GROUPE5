@@ -6,7 +6,7 @@ const express = require('express')
 
 const indexRoute = require('./index')
 const helloRoute = require('./hello')
-const catsRoute = require('./cats')
+const {catsRouter} = require('./cats')
 const {docsRouter} = require('./swagger');
 
 const router = express.Router()
@@ -17,7 +17,7 @@ router
     // Test
     .use('/hello/', helloRoute)
     // CRUD
-    .use('/cats/', catsRoute)
+    .use('/cats/', catsRouter)
     // API docs
     .use('/api-docs', docsRouter);
 

@@ -63,20 +63,26 @@ NodeJS API & SocketIO chat
 
 ### Add new routes
 
-1. Create a new file for your route : `./routes/[your-route-name].js`
+1. Create a new file for your route : `./routes/<route base url>/<http method>.path.[<route parameter>].handler.js`
 
 2. Copy the code from `./routes/route-template.js` and paste it to your just fresh .js route file
 
-3. Add in `./routes/router.js` :
+3. Add the newly created route to the router exported from `./routes/<route base url>/index.js`, like so :
+```js
+// new route.js
+router.<http method>('/<path>/:<route parameter>', handler)
+```
+
+4. If necessary,  the sub-router to the main one in `./routes/router.js` :
     - in the requires section : 
     ```js
-    const [your-route-name]Route = require('./[your-route-name]')
+    const [your-router-name]Route = require('./[your-router-name]')
     ``` 
     - add to the router object :
     ```js
-    router.use('/[your-route-name]/', [your-route-name]Route)
+    router.use('/[your-router-name]/', [your-router-name]Route)
     ```
-4. Your new route is setup ! Feel free to customize it.
+5. Your new route is setup ! Feel free to customize it.
 
 
 
