@@ -12,6 +12,6 @@ const catsRoute = require('./cats')
 router
     .use('/', indexRoute)
     .use('/hello/', helloRoute)
-    .use('/cats/', catsRoute)
+    .use('/cats/', catsRoute);
 
 module.exports = router;
