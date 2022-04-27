@@ -20,10 +20,17 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
     "jest": "^28.0.0",
     "nodemon": "^2.0.15",
     "prisma": "^3.12.0",
     "superagent": "^7.1.2",
     "supertest": "^6.2.2"
+  },
+  "config": {
+    "commitizen": {
+     "path": "cz-conventional-changelog"
+    }
   }
 }
