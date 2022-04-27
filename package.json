@@ -27,5 +27,10 @@
     "prisma": "^3.12.0",
     "superagent": "^7.1.2",
     "supertest": "^6.2.2"
+  },
+  "config": {
+    "commitizen": {
+     "path": "cz-conventional-changelog"
+    }
   }
 }
