@@ -80,6 +80,8 @@ NodeJS API & SocketIO chat
 4. Your new route is setup ! Feel free to customize it.
 
 ### Create a new feature
+For installing Git Flow, see [this doc](https://danielkummer.github.io/git-flow-cheatsheet/index.html).
+
 First, take the corresponding card on [the project board](https://github.com/IIM-Creative-Technology/NODEJS-SOCKETIO-IIM-A4-DW2-GROUPE5/projects/1) and assign yourself to it, moving it to the `doing` list.
 
 You then need to create locally a new branch for the feature with the command `git flow feature start`.
