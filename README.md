@@ -18,9 +18,13 @@ Online Link: [https://iim-groupe-5.vercel.app/](https://iim-groupe-5.vercel.app/
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
-      </ul>
-      <ul>
         <li><a href="#deployed-in">Deployed In</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#how-to">How to</a>
+      <ul>
+        <li><a href="#built-with">Add a new route</a></li>
       </ul>
     </li>
     <li>
@@ -51,6 +55,29 @@ NodeJS API & SocketIO chat
 ### Deployed In
 * [Vercel](https://vercel.com/)
 * [Heroku](https://heroku.com/)
+
+
+
+<!-- ABOUT THE PROJECT -->
+## How to
+
+### Add new routes
+
+1. Create a new file for your route : `./routes/[your-route-name].js`
+
+2. Copy the code from `./routes/route-template.js` and paste it to your just fresh .js route file
+
+3. Add in `./routes/router.js` :
+    - in the requires section : 
+    ```js
+    const [your-route-name]Route = require('./[your-route-name]')
+    ``` 
+    - add to the router object :
+    ```js
+    router.use('/[your-route-name]/', [your-route-name]Route)
+    ```
+4. Your new route is setup ! Feel free to customize it.
+
 
 
 
