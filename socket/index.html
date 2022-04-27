@@ -12,13 +12,24 @@
     <li>Premier élément</li>
 </ul>
 
+<label for="oui">Label</label>
+<input type="text" id="oui" onchange="handleChange(this)">
+
+
 <!-- CREATION SOCKET -->
 <script src="/socket.io/socket.io.js"></script>
 <script>
+
+    function handleChange({value}) {
+        socket.emit("hello", value)
+    }
+
     const socket = io();
     socket.on("connect", () => {
         console.log(socket); // x8WIv7-mJelg7on_ALbx
     });
+
+
 </script>
 
 <!-- FIN CODE SOCKET -->
