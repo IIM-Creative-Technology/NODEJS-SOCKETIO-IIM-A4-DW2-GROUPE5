@@ -1,3 +1,7 @@
+/**
+ * Route : index
+ */
+
 const express = require('express')
 const router = express.Router()
 
@@ -6,13 +10,13 @@ router
         res.json({ message: 'Welcome to the index route !' })
     })
     .post('/', (req, res) => {
-        res.json({ message: 'Post' })
+        res.json({ message: 'Index - Post' })
     })
     .put('/', (req,res) => {
-        res.json({ message: 'Put' })
+        res.json({ message: 'Index - Put' })
     })
     .delete('/', (req, res) => {
-        res.json({ message: 'Delete' })
+        res.json({ message: 'Index - Delete' })
     })
 
 module.exports = router;

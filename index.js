@@ -1,12 +1,12 @@
 const express = require('express')
 const app = express()
-const index = require('./routes/index')
+const port = process.env.PORT || 3000
+const index = require('./routes/routes')
 // const Socket = require('./socket/index')
 // const {createServer} = require("http")
 // const {Server} = require('socket.io')
 // const httpServer = createServer(index);
 // const io = new Server(httpServer)
-const port = process.env.PORT || 3000
 
 app.use('/', index)
 
