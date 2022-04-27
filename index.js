@@ -1,5 +1,5 @@
 const express = require('express')
-const index = require('./routes/routes')
+const router = require('./routes/router')
 // const Socket = require('./socket/index')
 // const {createServer} = require("http")
 // const {Server} = require('socket.io')
@@ -21,7 +21,7 @@ const port = process.env.PORT || 3000
 //     res.send('U just posted')
 // })
 
-app.use('/', index)
+app.use('/', router)
 
 app.listen(port, () => {
     console.log(`Server started on http://localhost:${port}`)
