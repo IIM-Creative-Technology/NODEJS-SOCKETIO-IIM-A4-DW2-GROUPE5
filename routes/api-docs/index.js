@@ -14,7 +14,7 @@ const options = {
         ]
     },
     apis: [
-        './routes/**/*.handler.js'
+        './**/*.handler.js'
         // add here other files (from the project root)
     ],
 };
