@@ -1,8 +1,8 @@
-const express = require('express');
-const router = express.Router();
+const {Router} = require('express');
+const router = new Router();
 
 router.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/index.html');
 });
 
 module.exports.socket = router;
