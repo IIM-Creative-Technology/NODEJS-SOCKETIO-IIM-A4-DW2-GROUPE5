@@ -5,16 +5,19 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'NodeJS - SocketIO - Groupe 5 > Nouilles',
+      title: 'NodeJS - SocketIO - Groupe 5',
       version: '1.0.0',
     },
     servers: [
-      {url: 'http://localhost:3000', description: 'Development'},
-      {url: 'https://iim-groupe-5.vercel.app/', description: 'Production'},
+      {
+        url: 'https://nodejs-socketio-grp5.herokuapp.com/',
+        description: 'Production',
+      },
+      { url: 'http://localhost:3000', description: 'Development' },
     ],
   },
   apis: [
-    './routes/**/*.handler.js',
+    './routes/**/*.js',
     // add here other files (from the project root)
   ],
 };

@@ -1,31 +1,25 @@
-const pg = require('pg')
-const Sequelize = require('sequelize')
+const pg = require('pg');
+const Sequelize = require('sequelize');
 require('dotenv').config();
 
-const {
-    DB_HOST,
-    DB_NAME,    
-    DB_USER,
-    DB_PORT,
-    DB_PASSWORD
-} = process.env;
+const { DB_HOST, DB_NAME, DB_USER, DB_PORT, DB_PASSWORD } = process.env;
 
 const sequelizeInstance = new Sequelize({
-    database: DB_NAME,
-    username: DB_USER,
-    password: DB_PASSWORD,
-    host: DB_HOST,
-    port: DB_PORT,
-    dialect: "postgres",
-    dialectOptions: {
-        ssl: {
-        require: true,
-        rejectUnauthorized: false
-        }
+  database: DB_NAME,
+  username: DB_USER,
+  password: DB_PASSWORD,
+  host: DB_HOST,
+  port: DB_PORT,
+  dialect: 'postgres',
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
     },
-    dialectModule: pg
+    dialectModule: pg,
+  },
 });
 
-module.exports= {
-    sequelizeInstance
-}
+module.exports = {
+  sequelizeInstance,
+};

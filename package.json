@@ -10,7 +10,7 @@
     "test": "jest",
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "lint": "eslint . --fix"
+    "lint": "eslint --fix ."
   },
   "author": "",
   "license": "ISC",

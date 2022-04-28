@@ -2,16 +2,16 @@
  * Route : cats
  */
 
-const {Router, json} = require('express');
+const { Router, json } = require('express');
 const catsRouter = new Router();
 catsRouter.use(json());
 
 // Test data
 const cats = [
-  {id: 1, name: 'Persan', description: 'Blue eyes'},
-  {id: 2, name: 'Munchkin', description: 'Short legs'},
-  {id: 3, name: 'Ragdoll', description: 'Long hair'},
-  {id: 4, name: 'British shorthair', description: 'Not so short hair'},
+  { id: 1, name: 'Persan', description: 'Blue eyes' },
+  { id: 2, name: 'Munchkin', description: 'Short legs' },
+  { id: 3, name: 'Ragdoll', description: 'Long hair' },
+  { id: 4, name: 'British shorthair', description: 'Not so short hair' },
 ];
 
 /**
@@ -135,7 +135,9 @@ catsRouter.get('/:catId', (req, res) => {
  */
 catsRouter.post('/', (req, res) => {
   const newCat = {
-    id: cats.length + 1, name: req.body.name, description: req.body.description,
+    id: cats.length + 1,
+    name: req.body.name,
+    description: req.body.description,
   };
   cats.push(newCat);
   res.status(201).json(newCat);
@@ -223,9 +225,11 @@ catsRouter.put('/:catId', (req, res) => {
     return res.status(404).send('Cat not found');
   }
   cats[index] = {
-    id: cats[index].id, name: req.body.name, description: req.body.description,
+    id: cats[index].id,
+    name: req.body.name,
+    description: req.body.description,
   };
   res.status(200).json(cats[index]);
 });
 
-module.exports = {catsRouter, cats};
+module.exports = { catsRouter, cats };
