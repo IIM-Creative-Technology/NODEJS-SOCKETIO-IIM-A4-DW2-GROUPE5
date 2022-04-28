@@ -7,7 +7,7 @@ const express = require('express')
 const indexRoute = require('./index')
 const helloRoute = require('./hello')
 const {catsRouter} = require('./cats')
-const {docsRouter} = require('./swagger');
+const {docsRouter} = require('./api-docs');
 
 const router = express.Router()
 
