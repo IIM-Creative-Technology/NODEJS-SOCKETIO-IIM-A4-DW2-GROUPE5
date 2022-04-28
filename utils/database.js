@@ -3,7 +3,7 @@ require('dotenv').config();
 
 const {
     DB_HOST,
-    DB_NAME,
+    DB_NAME,    
     DB_USER,
     DB_PORT,
     DB_PASSWORD
@@ -22,6 +22,7 @@ const sequelizeInstance = new Sequelize({
         rejectUnauthorized: false
         }
     },
+    dialectModule: pg
 });
 
 module.exports= {
