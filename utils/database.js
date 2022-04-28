@@ -1,4 +1,3 @@
-const pg = require('pg')
 const Sequelize = require('sequelize')
 require('dotenv').config();
 
@@ -23,7 +22,6 @@ const sequelizeInstance = new Sequelize({
         rejectUnauthorized: false
         }
     },
-    dialectModule: pg
 });
 
 module.exports= {
