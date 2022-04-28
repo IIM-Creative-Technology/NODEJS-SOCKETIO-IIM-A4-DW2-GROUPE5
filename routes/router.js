@@ -2,16 +2,26 @@
  * This is the Router that regroups all the routes.
  */
 
-const express = require('express')
-const router = express.Router()
+const {Router} = require('express');
 
-const indexRoute = require('./index')
-const helloRoute = require('./hello')
-const catsRoute = require('./cats')
+const indexRoute = require('./index');
+const helloRoute = require('./hello');
+const {catsRouter} = require('./cats');
+const {usersRouter} = require('./users');
+const {docsRouter} = require('./api-docs');
+
+const router = new Router();
 
 router
+    // Default page
     .use('/', indexRoute)
+    // Test
     .use('/hello/', helloRoute)
-    .use('/cats/', catsRoute);
+    // CRUD
+    .use('/cats/', catsRouter)
+    // CRUD users
+    .use('/users/', usersRouter)
+    // API docs
+    .use('/api-docs', docsRouter);
 
 module.exports = router;

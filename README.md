@@ -24,7 +24,8 @@ Online Link: [https://iim-groupe-5.vercel.app/](https://iim-groupe-5.vercel.app/
     <li>
       <a href="#how-to">How to</a>
       <ul>
-        <li><a href="#built-with">Add a new route</a></li>
+        <li><a href="#add-new-routes">Add a new route</a></li>
+        <li><a href="#create-a-new-feature">Create a new feature</a></li>
       </ul>
     </li>
     <li>
@@ -63,21 +64,41 @@ NodeJS API & SocketIO chat
 
 ### Add new routes
 
-1. Create a new file for your route : `./routes/[your-route-name].js`
+1. Create a new file for your route : `./routes/<route base url>/<http method>.path.[<route parameter>].handler.js`
 
 2. Copy the code from `./routes/route-template.js` and paste it to your just fresh .js route file
 
-3. Add in `./routes/router.js` :
+3. Add the newly created route to the router exported from `./routes/<route base url>/index.js`, like so :
+```js
+// new route.js
+router.<http method>('/<path>/:<route parameter>', handler)
+```
+
+4. If necessary,  the sub-router to the main one in `./routes/router.js` :
     - in the requires section : 
     ```js
-    const [your-route-name]Route = require('./[your-route-name]')
+    const [your-router-name]Route = require('./[your-router-name]')
     ``` 
     - add to the router object :
     ```js
-    router.use('/[your-route-name]/', [your-route-name]Route)
+    router.use('/[your-router-name]/', [your-router-name]Route)
     ```
-4. Your new route is setup ! Feel free to customize it.
+5. Your new route is setup ! Feel free to customize it.
 
+### Create a new feature
+For installing Git Flow, see [this doc](https://danielkummer.github.io/git-flow-cheatsheet/index.html).
+
+First, take the corresponding card on [the project board](https://github.com/IIM-Creative-Technology/NODEJS-SOCKETIO-IIM-A4-DW2-GROUPE5/projects/1) and assign yourself to it, moving it to the `doing` list.
+
+You then need to create locally a new branch for the feature with the command `git flow feature start`.
+
+Then, as usual, do your commits (optionally with sharing the branch with `git flow feature publish`), until you have finished.
+
+Then you can close the feature with `git flow feature finish`.
+
+Next step is [opening a PR towards the develop branch](https://github.com/IIM-Creative-Technology/NODEJS-SOCKETIO-IIM-A4-DW2-GROUPE5/compare/develop...main) and moving the card on the project board to the `to validate` list.
+
+Another dev should review your code and merge it!
 
 
 

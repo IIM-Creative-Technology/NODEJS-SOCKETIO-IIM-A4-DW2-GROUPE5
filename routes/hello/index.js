@@ -1,5 +1,5 @@
 /**
- * Route : [ROUTENAME]
+ * Route : hello
  */
 
 const {Router} = require('express');
@@ -7,7 +7,7 @@ const router = new Router();
 
 router
     .get('/', (req, res) => {
-      res.json({message: 'Hey, i\m a route template default message.'});
+      res.json({message: 'Welcome to the hello route !'});
     });
 
 module.exports = router;
