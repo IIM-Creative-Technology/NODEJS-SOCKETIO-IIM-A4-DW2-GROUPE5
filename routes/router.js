@@ -8,7 +8,7 @@ const indexRoute = require('./index');
 const helloRoute = require('./hello');
 const {catsRouter} = require('./cats');
 const {usersRouter} = require('./users');
-const {docsRouter} = require('./swagger');
+const {docsRouter} = require('./api-docs');
 
 const router = new Router();
 
