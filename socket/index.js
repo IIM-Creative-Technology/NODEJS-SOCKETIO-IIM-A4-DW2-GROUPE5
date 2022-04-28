@@ -5,4 +5,4 @@ router.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
-module.exports.socket = router;
+module.exports = router;
