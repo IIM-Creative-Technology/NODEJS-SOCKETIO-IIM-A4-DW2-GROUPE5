@@ -17,11 +17,15 @@ app.use('/', router)
 
 //Socket.io connection
 io.on('connection', (socket) => {
-    console.log(`Connected client`)
+    console.log(`Connected client :`, socket.id)
+    io.emit('socketId', socket.id)
 
-    socket.on('chatMessage', (message) => {       
-        console.log(`Message received`)
-        io.emit('chatMessage', message);
+    socket.on('chatMessage', (data) => {       
+        console.log(`Message received by :` , data.id)
+        io.emit('chatMessage', {
+            'message' : data.content,
+            'color' : data.color
+        });
     })
 })
 

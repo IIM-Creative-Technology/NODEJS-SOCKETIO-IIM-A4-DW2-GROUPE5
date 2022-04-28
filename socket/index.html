@@ -54,10 +54,6 @@
         #messages > li {
             padding: 0.5rem 1rem;
         }
-
-        #messages > li:nth-child(odd) {
-            background: #efefef;
-        }
     </style>
 </head>
 
@@ -69,27 +65,45 @@
 </form>
 <script src="/socket.io/socket.io.js"></script>
 <script>
-    var socket = io();
+    const socket = io();
 
-    var messages = document.getElementById('messages');
-    var form = document.getElementById('form');
-    var input = document.getElementById('input');
+    const messages = document.getElementById('messages');
+    const form = document.getElementById('form');
+    const input = document.getElementById('input');
 
+    const randomColor = Math.floor(Math.random()*16777215).toString(16);
+    let clientId
+
+    
+    socket.on('socketId', function(socketId) {
+        console.log('client id : ', socketId)
+        clientId = socketId
+    });
+
+    //send client message to server
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         if (input.value) {
             console.log('message: ', input.value)
-            socket.emit('chatMessage', input.value);
+            socket.emit('chatMessage', {
+                'id' : clientId, 
+                'content' : input.value,
+                'color' : randomColor
+            });
             input.value = '';
         }
     });
 
-    socket.on('chatMessage', function(msg) {
+    //receive message from server
+    socket.on('chatMessage', function(data) {
         var item = document.createElement('li');
-        item.textContent = msg;
+        item.textContent = data.message;
+        item.setAttribute('id', clientId);
+        item.style.background = '#' + data.color
         messages.appendChild(item);
         window.scrollTo(0, document.body.scrollHeight);
     });
+
 </script>
 </body>
 </html>
