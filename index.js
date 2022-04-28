@@ -1,11 +1,11 @@
-const express = require('express')
-const router = require('./routes/router')
+const express = require('express');
+const router = require('./routes/router');
 // const Socket = require('./socket/index')
 // const {createServer} = require("http")
 // const {Server} = require('socket.io')
 
-const app = express()
-const port = process.env.PORT || 3000
+const app = express();
+const port = process.env.PORT || 3000;
 // const httpServer = createServer(index);
 // const io = new Server(httpServer)
 
@@ -21,9 +21,9 @@ const port = process.env.PORT || 3000
 //     res.send('U just posted')
 // })
 
-app.use('/', router)
+app.use('/', router);
 
 app.listen(port, () => {
-    console.log(`Server started on http://localhost:${port}`)
-})
+  console.log(`Server started on http://localhost:${port}`);
+});
 

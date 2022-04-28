@@ -2,18 +2,18 @@ const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
 const options = {
-    definition: {
-        openapi: '3.0.0',
-        info: {
-            title: 'NodeJS - SocketIO - Groupe 5 > Nouilles',
-            version: '1.0.0',
-        },
-        servers: [
-            {url:'http://localhost:3000', description: 'Development'},
-            {url:'https://iim-groupe-5.vercel.app/', description: 'Production'}
-        ]
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'NodeJS - SocketIO - Groupe 5 > Nouilles',
+      version: '1.0.0',
     },
-    apis: [
+    servers: [
+      {url: 'http://localhost:3000', description: 'Development'},
+      {url: 'https://iim-groupe-5.vercel.app/', description: 'Production'},
+    ],
+  },
+  apis: [
         './**/*.handler.js'
         // add here other files (from the project root)
     ],
@@ -21,4 +21,6 @@ const options = {
 
 const openapiSpecification = swaggerJsdoc(options);
 
-module.exports = {docsRouter: [swaggerUi.serve, swaggerUi.setup(openapiSpecification)]};
+module.exports = {
+  docsRouter: [swaggerUi.serve, swaggerUi.setup(openapiSpecification)],
+};
