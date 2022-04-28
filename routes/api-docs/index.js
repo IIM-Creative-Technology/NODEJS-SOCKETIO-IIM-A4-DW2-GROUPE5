@@ -14,11 +14,7 @@ const options = {
     ],
   },
   apis: [
-    './routes/cats/delete._catId_.handler.js',
-    './routes/cats/get._catId_.handler.js',
-    './routes/cats/get.handler.js',
-    './routes/cats/post.handler.js',
-    './routes/cats/put._catId_.handler.js',
+    './routes/**/*.handler.js',
     // add here other files (from the project root)
   ],
 };
