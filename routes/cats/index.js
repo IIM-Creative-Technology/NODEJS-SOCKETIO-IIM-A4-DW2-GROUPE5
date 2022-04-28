@@ -2,9 +2,9 @@
  * Route : cats
  */
 
-const {Router} = require('express');
+const {Router, json} = require('express');
 const catsRouter = new Router();
-catsRouter.use(express.json());
+catsRouter.use(json());
 
 // Test data
 const cats = [
