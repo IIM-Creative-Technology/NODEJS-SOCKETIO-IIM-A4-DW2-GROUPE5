@@ -1,12 +1,15 @@
 const http = require('http');
 const express = require('express');
-const socketIO = require('socket.io');
 const bodyParser = require('body-parser');
 const {sequelizeInstance} = require('./utils/database');
 
 const app = express();
 const server = http.createServer(app);
-const io = socketIO(server);
+const io = require('socket.io')(server, {
+    cors: {
+      origin: '*',
+    }
+});
 
 const port = process.env.PORT || 3000;
 
