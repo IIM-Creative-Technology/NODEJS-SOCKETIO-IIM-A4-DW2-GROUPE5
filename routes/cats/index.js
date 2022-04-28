@@ -3,6 +3,7 @@
  */
 
 const {Router, json} = require('express');
+const {body, validationResult} = require('express-validator');
 const catsRouter = new Router();
 catsRouter.use(json());
 
@@ -133,7 +134,16 @@ catsRouter.get('/:catId', (req, res) => {
  *                   description: A short description for the cat.
  *                   example: 'Not so short hair'
  */
-catsRouter.post('/', (req, res) => {
+catsRouter.post('/',
+body('name').isLength({ min: 5 }),
+body('description').isLength({ min: 10 }),
+(req, res) => {
+  //Check data validation
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   const newCat = {
     id: cats.length + 1, name: req.body.name, description: req.body.description,
   };
@@ -216,7 +226,16 @@ catsRouter.delete('/:catId', (req, res) => {
  *       404:
  *          description: This cat wasn't found.
  */
-catsRouter.put('/:catId', (req, res) => {
+catsRouter.put('/:catId',
+body('name').isLength({ min: 5 }),
+body('description').isLength({ min: 10 }),
+(req, res) => {
+  //Check data validation
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   const id = Number(req.params.catId);
   const index = cats.findIndex((cat) => cat.id === id);
   if (index === -1) {
