@@ -8,7 +8,7 @@
 
 Github Link: [https://github.com/IIM-Creative-Technology/NODEJS-SOCKETIO-IIM-A4-DW2-GROUPE5](https://github.com/IIM-Creative-Technology/NODEJS-SOCKETIO-IIM-A4-DW2-GROUPE5)
 
-Online Link: [https://iim-groupe-5.vercel.app/](https://iim-groupe-5.vercel.app/)
+Online Link: [https://nodejs-socketio-grp5.herokuapp.com](https://nodejs-socketio-grp5.herokuapp.com)
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
