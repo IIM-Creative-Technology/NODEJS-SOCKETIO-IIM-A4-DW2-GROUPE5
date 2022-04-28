@@ -3,15 +3,22 @@
  */
 
 const express = require('express')
-const router = express.Router()
 
 const indexRoute = require('./index')
 const helloRoute = require('./hello')
-const catsRoute = require('./cats')
+const {catsRouter} = require('./cats')
+const {docsRouter} = require('./swagger');
+
+const router = express.Router()
 
 router
+    // Default page
     .use('/', indexRoute)
+    // Test
     .use('/hello/', helloRoute)
-    .use('/cats/', catsRoute);
+    // CRUD
+    .use('/cats/', catsRouter)
+    // API docs
+    .use('/api-docs', docsRouter);
 
 module.exports = router;
