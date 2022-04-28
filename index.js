@@ -1,29 +1,34 @@
-const express = require('express');
-const router = require('./routes/router');
-// const Socket = require('./socket/index')
-// const {createServer} = require("http")
-// const {Server} = require('socket.io')
+const http = require('http')
+const express = require('express')
+const socketIO = require('socket.io')
 
-const app = express();
-const port = process.env.PORT || 3000;
-// const httpServer = createServer(index);
-// const io = new Server(httpServer)
+const app = express()
+const server = http.createServer(app)
+const io = socketIO(server)
 
-// io.on('connection', (socket) => {
-//     console.log(`Connecté au client ${socket.id}`)
-// })
+const port = process.env.PORT || 3000
 
-// index.use('/api', Api.router
-//     // Insert here the sub route (.use like above)
-// ).use('/socket', Socket.socket)
+const router = require('./routes/router')
+const messenger = require('./socket/index')
 
-// index.post('/test', (req, res) => {
-//     res.send('U just posted')
-// })
+//Routing
+app.use('/', router)
+    .use('/m', messenger)
 
-app.use('/', router);
+//Socket.io connection
+io.on('connection', (socket) => {
+    console.log(`Connected client :`, socket.id)
+    io.emit('socketId', socket.id)
 
-app.listen(port, () => {
-  console.log(`Server started on http://localhost:${port}`);
-});
+    socket.on('chatMessage', (data) => {       
+        console.log(`Message received by :` , data.id)
+        io.emit('chatMessage', {
+            'message' : data.content,
+            'color' : data.color
+        });
+    })
+})
 
+server.listen(port, () => {
+    console.log(`Server started on http://localhost:${port}`)
+})
