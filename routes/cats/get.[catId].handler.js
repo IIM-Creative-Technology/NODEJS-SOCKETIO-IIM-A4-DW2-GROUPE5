@@ -1,4 +1,4 @@
-const {catsRouter, cats} = require("./index");
+const {catsRouter, cats} = require('./index');
 
 /**
  * @openapi
@@ -30,10 +30,10 @@ const {catsRouter, cats} = require("./index");
  *          description: This cat wasn't found.
  */
 catsRouter.get('/:catId', (req, res) => {
-    const id = Number(req.params.catId)
-    const cat = cats.find(cat => cat.id === id)
-    if (!cat) {
-        return res.status(404).send('Cat not found')
-    }
-    res.json(cat)
+  const id = Number(req.params.catId);
+  const cat = cats.find((cat) => cat.id === id);
+  if (!cat) {
+    return res.status(404).send('Cat not found');
+  }
+  res.json(cat);
 });

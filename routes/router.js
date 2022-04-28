@@ -2,14 +2,14 @@
  * This is the Router that regroups all the routes.
  */
 
-const express = require('express')
+const {Router} = require('express');
 
-const indexRoute = require('./index')
-const helloRoute = require('./hello')
-const {catsRouter} = require('./cats')
+const indexRoute = require('./index');
+const helloRoute = require('./hello');
+const {catsRouter} = require('./cats');
 const {docsRouter} = require('./swagger');
 
-const router = express.Router()
+const router = new Router();
 
 router
     // Default page

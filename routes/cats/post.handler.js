@@ -1,4 +1,4 @@
-const {catsRouter, cats} = require("./index");
+const {catsRouter, cats} = require('./index');
 
 /**
  * @openapi
@@ -46,9 +46,9 @@ const {catsRouter, cats} = require("./index");
  *                   example: 'Not so short hair'
  */
 catsRouter.post('/', (req, res) => {
-    const newCat = {
-        id: cats.length + 1, name: req.body.name, description: req.body.description
-    }
-    cats.push(newCat)
-    res.status(201).json(newCat)
+  const newCat = {
+    id: cats.length + 1, name: req.body.name, description: req.body.description,
+  };
+  cats.push(newCat);
+  res.status(201).json(newCat);
 });
