@@ -6,9 +6,7 @@ app.use('/', index.router);
 
 describe('Test the root path', () => {
   test('Expect OK status code from GET \'/\' ', () => {
-    request(index.router)
-        .get('/')
-        .expect(304);
+    request(index.router).get('/').expect(304);
   });
 
   test('Expect a json response from GET \'/\'', async () => {

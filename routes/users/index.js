@@ -2,14 +2,14 @@
  * Route : users
  */
 
-const {Router, json} = require('express');
-const {User} = require('../../models/users');
+const { Router, json } = require('express');
+const { User } = require('../../models/users');
 const usersRouter = new Router();
 usersRouter.use(json());
 
 /**
  * @openapi
- * /cats/:
+ * /users/:
  *   get:
  *     summary: Gets the list of users.
  *     description: Gets the list of users.
@@ -42,8 +42,8 @@ usersRouter.get('/', async (req, res) => {
   try {
     const ALL = await User.findAll();
     console.log(
-        'OK getAll USER: ',
-        ALL.map((el) => el.dataValues),
+      'OK getAll USER: ',
+      ALL.map((el) => el.dataValues)
     );
     return res.status(200).json(ALL);
   } catch (error) {
@@ -188,7 +188,7 @@ usersRouter.get('/:userId', async (req, res) => {
  */
 usersRouter.delete('/:userId', async (req, res) => {
   try {
-    const u = await User.destroy({where: {id: req.params.userId}});
+    const u = await User.destroy({ where: { id: req.params.userId } });
     console.log('OK deleteOne USER: ');
     return res.status(200).json(u);
   } catch (error) {
@@ -271,7 +271,9 @@ usersRouter.put('/:userId', async (req, res) => {
     };
 
     try {
-      const u = await User.update(USER_MODEL, {where: {id: req.params.userId}});
+      const u = await User.update(USER_MODEL, {
+        where: { id: req.params.userId },
+      });
       console.log('OK updateOne USER: ', u);
       return res.status(200).json(u);
     } catch (error) {
@@ -283,4 +285,4 @@ usersRouter.put('/:userId', async (req, res) => {
   }
 });
 
-module.exports = {usersRouter};
+module.exports = { usersRouter };
