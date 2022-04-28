@@ -1,8 +1,16 @@
 const http = require('http');
 const express = require('express');
+const socketIO = require('socket.io');
+
+const cors = require('cors');
+
 const bodyParser = require('body-parser');
 const {sequelizeInstance} = require('./utils/database');
 
+const router = require('./routes/router');
+const messenger = require('./socket/index');
+
+const port = process.env.PORT || 3000;
 const app = express();
 const server = http.createServer(app);
 const io = require('socket.io')(server, {
@@ -11,16 +19,12 @@ const io = require('socket.io')(server, {
     }
 });
 
-const port = process.env.PORT || 3000;
-
-const router = require('./routes/router');
-const messenger = require('./socket/index');
-
 app.use(bodyParser.json());
 
 // Routing
 app.use('/', router)
     .use('/m', messenger);
+
 
 // Socket.io connection
 io.on('connection', (socket) => {
@@ -36,6 +40,9 @@ io.on('connection', (socket) => {
   });
 });
 
+server.listen(port, () => {
+  console.log(`Server started on http://localhost:${port}`);
+});
 
 const startServer = async () => {
   try {
